@@ -1,11 +1,12 @@
 // ============= Test Cases =============
-import type { Equal, Expect } from './test-utils'
+import type { Equal, Expect } from "./test-utils";
 
 type cases = [
-  Expect<Equal<TupleToUnion<[123, '456', true]>, 123 | '456' | true>>,
-  Expect<Equal<TupleToUnion<[123]>, 123>>,
-]
-
+  Expect<Equal<TupleToUnion<[123, "456", true]>, 123 | "456" | true>>,
+  Expect<Equal<TupleToUnion<[123]>, 123>>
+];
 
 // ============= Your Code Here =============
-type TupleToUnion<T> = any
+type TupleToUnion<T> = T extends [infer F, ...infer R]
+  ? F | TupleToUnion<R>
+  : never;

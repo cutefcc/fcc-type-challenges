@@ -45,3 +45,5 @@ type MyOmit<T, K extends keyof T> = {
 type MyReadonly2<T, K extends keyof T = keyof T> = {
   readonly [M in K]: T[M];
 } & MyOmit<T, K>;
+
+// type MyReadonly2<T, K extends keyof T = keyof T> = Readonly<T> & Omit<T, K>;

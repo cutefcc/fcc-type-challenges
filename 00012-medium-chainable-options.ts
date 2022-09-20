@@ -33,6 +33,7 @@ type Expected2 = {
 };
 
 // ============= Your Code Here =============
+// Record 将得到的键值对转换为对象 {K: V}
 type Chainable<T extends object = {}> = {
   option<K extends string, V>(
     key: K extends keyof T ? never : K,

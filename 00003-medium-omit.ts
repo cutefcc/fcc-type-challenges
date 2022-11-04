@@ -23,10 +23,14 @@ interface Expected1 {
 interface Expected2 {
   title: string;
 }
+// 第二次做
+type MyOmit<T, U> = {
+  [M in Exclude<keyof T, U>]: T[M];
+};
 
 // ============= Your Code Here =============
 // K 是一个联合类型（Union Types）表示取值可以为多种类型中的一种
-// 问题转换为：如何从一个Union types 中  剔除 一个Union types  -> Exclude<T, K>
-type MyOmit<T, K extends keyof T> = {
-  [P in Exclude<keyof T, K>]: T[P];
-};
+// // 问题转换为：如何从一个Union types 中  剔除 一个Union types  -> Exclude<T, K>
+// type MyOmit<T, K extends keyof T> = {
+//   [P in Exclude<keyof T, K>]: T[P];
+// };

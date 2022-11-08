@@ -18,3 +18,10 @@ type Trim<S extends string> = S extends
   | `${infer R}${" " | "\n" | "\t"}`
   ? Trim<R>
   : S;
+
+// 第二次
+// type Trim<S extends string> = S extends `${" " | "\n" | "\t"}${infer R}`
+//   ? Trim<R>
+//   : S extends `${infer RR}${" " | "\n" | "\t"}`
+//   ? Trim<RR>
+//   : S;
